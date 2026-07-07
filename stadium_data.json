@@ -1,0 +1,212 @@
+[
+  {
+    "id": "1",
+    "name": "Gate A",
+    "type": "Gate",
+    "location": "North",
+    "description": "Main Entrance"
+  },
+  {
+    "id": "2",
+    "name": "Gate B",
+    "type": "Gate",
+    "location": "Northeast",
+    "description": "General Admission"
+  },
+  {
+    "id": "3",
+    "name": "Gate C",
+    "type": "Gate",
+    "location": "East",
+    "description": "General Admission"
+  },
+  {
+    "id": "4",
+    "name": "Gate D",
+    "type": "Gate",
+    "location": "Southeast",
+    "description": "General Admission"
+  },
+  {
+    "id": "5",
+    "name": "Gate E",
+    "type": "Gate",
+    "location": "South",
+    "description": "VIP & Premium Seating"
+  },
+  {
+    "id": "6",
+    "name": "Gate F",
+    "type": "Gate",
+    "location": "Southwest",
+    "description": "General Admission"
+  },
+  {
+    "id": "7",
+    "name": "Gate G",
+    "type": "Gate",
+    "location": "West",
+    "description": "General Admission"
+  },
+  {
+    "id": "8",
+    "name": "Gate H",
+    "type": "Gate",
+    "location": "Northwest",
+    "description": "General Admission"
+  },
+  {
+    "id": "9",
+    "name": "The Hudson Grill",
+    "type": "Food Court",
+    "location": "Concourse 1, Near Sec 110",
+    "description": "Burgers, fries, and classic stadium fare."
+  },
+  {
+    "id": "10",
+    "name": "Liberty Slice Pizza",
+    "type": "Food Court",
+    "location": "Concourse 2, Near Sec 135",
+    "description": "New York style pizza and Italian snacks."
+  },
+  {
+    "id": "11",
+    "name": "Meadowlands Cafe",
+    "type": "Food Court",
+    "location": "Club Level, Sec 215",
+    "description": "Premium coffee, pastries, and sandwiches."
+  },
+  {
+    "id": "12",
+    "name": "Goalpost Burgers",
+    "type": "Food Court",
+    "location": "Concourse 3, Near Sec 340",
+    "description": "Gourmet burgers and craft beers."
+  },
+  {
+    "id": "13",
+    "name": "Empire State Tacos",
+    "type": "Food Court",
+    "location": "Upper Deck, Near Sec 310",
+    "description": "Street tacos, nachos, and margaritas."
+  },
+  {
+    "id": "14",
+    "name": "Accessible Entrance A",
+    "type": "Accessible Entrance",
+    "location": "Next to Gate A",
+    "description": "Wheelchair accessible entrance with dedicated staff."
+  },
+  {
+    "id": "15",
+    "name": "Accessible Entrance E",
+    "type": "Accessible Entrance",
+    "location": "Next to Gate E",
+    "description": "Wheelchair accessible entrance for South lot arrivals."
+  },
+  {
+    "id": "16",
+    "name": "Elevator Bank 1 (East)",
+    "type": "Elevator",
+    "location": "Near Gate C",
+    "description": "Access to all concourse levels and club seating."
+  },
+  {
+    "id": "17",
+    "name": "Elevator Bank 2 (West)",
+    "type": "Elevator",
+    "location": "Near Gate G",
+    "description": "Access to upper decks and press box."
+  },
+  {
+    "id": "18",
+    "name": "First-Aid Station North",
+    "type": "First-Aid",
+    "location": "Concourse 1, Near Gate A",
+    "description": "Medical assistance and emergency care."
+  },
+  {
+    "id": "19",
+    "name": "First-Aid Station South",
+    "type": "First-Aid",
+    "location": "Concourse 2, Near Gate E",
+    "description": "Medical assistance and emergency care."
+  },
+  {
+    "id": "20",
+    "name": "Multi-faith Prayer Room",
+    "type": "Prayer Room",
+    "location": "Level 2, near Sec 225",
+    "description": "Quiet space for prayer and reflection."
+  },
+  {
+    "id": "21",
+    "name": "Water Refill Station 1",
+    "type": "Water Refill",
+    "location": "Sec 110",
+    "description": "Sustainable water bottle refill station."
+  },
+  {
+    "id": "22",
+    "name": "Water Refill Station 2",
+    "type": "Water Refill",
+    "location": "Sec 220",
+    "description": "Sustainable water bottle refill station."
+  },
+  {
+    "id": "23",
+    "name": "Water Refill Station 3",
+    "type": "Water Refill",
+    "location": "Sec 330",
+    "description": "Sustainable water bottle refill station."
+  },
+  {
+    "id": "24",
+    "name": "VIP Parking Lot A",
+    "type": "Parking",
+    "location": "South perimeter",
+    "description": "Reserved parking for VIP ticket holders."
+  },
+  {
+    "id": "25",
+    "name": "General Parking Lot B",
+    "type": "Parking",
+    "location": "East perimeter",
+    "description": "Standard stadium parking."
+  },
+  {
+    "id": "26",
+    "name": "General Parking Lot C",
+    "type": "Parking",
+    "location": "West perimeter",
+    "description": "Standard stadium parking with tailgating zones."
+  },
+  {
+    "id": "27",
+    "name": "Meadowlands Rail Station Exit",
+    "type": "Transit Exit",
+    "location": "Northwest of Stadium",
+    "description": "Direct access to NJ Transit trains."
+  },
+  {
+    "id": "28",
+    "name": "Stadium Bus Terminal",
+    "type": "Transit Exit",
+    "location": "Northeast of Stadium",
+    "description": "Drop-off and pick-up for express buses."
+  },
+  {
+    "id": "29",
+    "name": "Seating Section 144",
+    "type": "Seating Section",
+    "location": "Lower Bowl, Midfield",
+    "description": "Premium lower bowl seating with excellent pitch views."
+  },
+  {
+    "id": "30",
+    "name": "Seating Section 238",
+    "type": "Seating Section",
+    "location": "Mid Tier, Corner",
+    "description": "Elevated view of the entire field."
+  }
+]

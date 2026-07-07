@@ -1,19 +1,35 @@
-const GEMINI_API_KEY = "PASTE_YOUR_KEY_HERE";
+const GEMINI_API_KEY = "PASTE_YOUR_API_KEY";
+
+
 
 const chatContainer = document.getElementById('chatContainer');
 const chatForm = document.getElementById('chatForm');
 const userInput = document.getElementById('userInput');
 
 let chatHistory = [];
+let stadiumData = null;
 
-chatForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const text = userInput.value.trim();
+// Load stadium data when the script starts
+async function loadStadiumData() {
+    try {
+        const response = await fetch('stadium_data.json');
+        if (response.ok) {
+            stadiumData = await response.json();
+            console.log("Stadium data loaded successfully.");
+        } else {
+            console.error("Failed to load stadium_data.json:", response.status);
+        }
+    } catch (error) {
+        console.error("Error fetching stadium_data.json:", error);
+    }
+}
+loadStadiumData();
+
+async function handleSendMessage(text) {
     if (!text) return;
 
     // Add user message to UI
     addMessage(text, 'user-message');
-    userInput.value = '';
 
     // Add user message to history
     chatHistory.push({
@@ -43,7 +59,29 @@ chatForm.addEventListener('submit', async (e) => {
         // Remove the user message from history so they can retry without corrupting history
         chatHistory.pop();
     }
+}
+
+chatForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const text = userInput.value.trim();
+    userInput.value = '';
+    await handleSendMessage(text);
 });
+
+// Event listeners for suggestion chips
+document.querySelectorAll('.chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+        handleSendMessage(chip.textContent.trim());
+    });
+});
+
+// Event listener for emergency button
+const emergencyBtn = document.getElementById('emergencyBtn');
+if (emergencyBtn) {
+    emergencyBtn.addEventListener('click', () => {
+        handleSendMessage('Where is the first-aid station?');
+    });
+}
 
 function addMessage(text, className) {
     const msgDiv = document.createElement('div');
@@ -95,7 +133,10 @@ async function fetchGeminiResponse(history) {
     const systemInstruction = {
         role: "system",
         parts: [{
-            text: `You are StadiumMate, a helpful, multilingual AI chat assistant for fans at FIFA World Cup 2026 stadiums. You must always reply in the same language the user wrote in. Be concise, friendly, and helpful.`
+            text: `You are StadiumMate, a multilingual assistant for the 2026 World Cup. You must base all your answers ONLY on the provided stadium_data.json. If the user asks for something not in the data, politely say you don't have that info. Always reply in the exact same language the user wrote in.
+
+stadium_data.json:
+${JSON.stringify(stadiumData, null, 2)}`
         }]
     };
 
