@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StadiumMate - World Cup 2026 Assistant</title>
-    <meta name="description" content="StadiumMate is a multilingual AI chat assistant for fans at FIFA World Cup 2026 stadiums.">
+    <meta name="description"
+        content="StadiumMate is a multilingual AI chat assistant for fans at FIFA World Cup 2026 stadiums.">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div class="bg-image"></div>
     <div class="app-container">
@@ -16,7 +19,9 @@
                 <img src="logo.png" alt="StadiumMate Logo" class="fifa-logo">
                 <h1>STADIUMMATE</h1>
             </div>
-            <button id="emergencyBtn" class="emergency-btn">🚑 Emergency First-Aid</button>
+            <div class="header-controls">
+                <button id="emergencyBtn" class="emergency-btn" title="Emergency">🚨</button>
+            </div>
         </header>
 
         <main class="chat-container" id="chatContainer">
@@ -29,14 +34,24 @@
 
         <footer class="input-container">
             <div class="suggestion-chips">
+                <button id="locationPillBtn" class="chip location-pill" type="button">📍 Main Entrance Plaza</button>
                 <button class="chip" type="button">Nearest exit</button>
                 <button class="chip" type="button">Accessible route</button>
                 <button class="chip" type="button">Food near me</button>
             </div>
             <form id="chatForm">
                 <input type="text" id="userInput" placeholder="Type your message..." autocomplete="off" required>
+                <button type="button" id="mic-btn" aria-label="Voice input" title="Voice input">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
+                        <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                        <line x1="12" y1="19" x2="12" y2="22"></line>
+                    </svg>
+                </button>
                 <button type="submit" id="sendBtn" aria-label="Send Message">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
                         <line x1="22" y1="2" x2="11" y2="13"></line>
                         <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
                     </svg>
@@ -44,6 +59,25 @@
             </form>
         </footer>
     </div>
+
+    <!-- Bottom Sheet Overlays -->
+    <div id="locationSheetBackdrop" class="sheet-backdrop hidden"></div>
+    <div id="locationSheet" class="bottom-sheet hidden">
+        <h3>Where are you now?</h3>
+        <div class="location-grid">
+            <button class="loc-btn" data-loc="plaza">Main Entrance Plaza</button>
+            <button class="loc-btn" data-loc="gate-a">Gate A</button>
+            <button class="loc-btn" data-loc="gate-b">Gate B</button>
+            <button class="loc-btn" data-loc="gate-c">Gate C</button>
+            <button class="loc-btn" data-loc="gate-d">Gate D</button>
+            <button class="loc-btn" data-loc="gate-e">Gate E</button>
+            <button class="loc-btn" data-loc="gate-g">Gate G</button>
+        </div>
+    </div>
+    
+    <div id="toast" class="toast hidden"></div>
+
     <script src="script.js"></script>
 </body>
+
 </html>

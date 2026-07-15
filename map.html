@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stadium Map - StadiumMate</title>
+    <link rel="stylesheet" href="map.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="map-container">
+        <header>
+            <a href="index.html" class="back-link">← Back to chat</a>
+            <h1>STADIUM MAP ✅</h1>
+        </header>
+
+        <main class="map-area">
+            <svg id="stadiumMap" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                <!-- Defs for filters and markers -->
+                <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                        <polygon points="0 0, 10 3.5, 0 7" fill="var(--accent-green)" />
+                    </marker>
+                </defs>
+
+                <!-- Background Elements -->
+                <rect width="100%" height="100%" fill="transparent"/>
+                
+                <!-- Main Entrance Plaza Area -->
+                <g id="plaza" class="marker" data-name="Main Entrance Plaza" transform="translate(400, 550)">
+                    <ellipse cx="0" cy="0" rx="100" ry="30" class="plaza-area" />
+                    <text x="0" y="5" class="plaza-text">MAIN ENTRANCE PLAZA</text>
+                </g>
+
+                <!-- Concourse -->
+                <ellipse cx="400" cy="300" rx="280" ry="180" class="concourse" />
+                
+                <!-- Pitch -->
+                <ellipse cx="400" cy="300" rx="140" ry="90" class="pitch" />
+                <!-- Pitch Markings -->
+                <line x1="400" y1="210" x2="400" y2="390" class="pitch-line" />
+                <circle cx="400" cy="300" r="25" class="pitch-line" fill="none" />
+                <rect x="260" y="250" width="30" height="100" class="pitch-line" fill="none" />
+                <rect x="510" y="250" width="30" height="100" class="pitch-line" fill="none" />
+
+                <!-- Route Path -->
+                <path id="routeLine" class="route-line" d="" marker-end="url(#arrowhead)"/>
+
+                <!-- Map Markers Group -->
+                <g id="markersLayer">
+                    <!-- Gates -->
+                    <g id="gate-a" class="marker" data-name="Gate A" transform="translate(400, 120)">
+                        <circle r="16" class="gate-bg" />
+                        <text class="icon">A</text>
+                    </g>
+                    <g id="gate-b" class="marker" data-name="Gate B" transform="translate(620, 170)">
+                        <circle r="16" class="gate-bg" />
+                        <text class="icon">B</text>
+                    </g>
+                    <g id="gate-c" class="marker" data-name="Gate C" transform="translate(680, 300)">
+                        <circle r="16" class="gate-bg" />
+                        <text class="icon">C</text>
+                    </g>
+                    <g id="gate-d" class="marker" data-name="Gate D" transform="translate(400, 480)">
+                        <circle r="16" class="gate-bg" />
+                        <text class="icon">D</text>
+                    </g>
+                    <g id="gate-e" class="marker" data-name="Gate E" transform="translate(120, 300)">
+                        <circle r="16" class="gate-bg" />
+                        <text class="icon">E</text>
+                    </g>
+                    <g id="gate-g" class="marker" data-name="Gate G" transform="translate(180, 170)">
+                        <circle r="16" class="gate-bg" />
+                        <text class="icon">G</text>
+                        <text x="18" y="-5" class="wheelchair">♿</text>
+                    </g>
+
+                    <!-- Outside Bowl -->
+                    <g id="rail-station" class="marker" data-name="Rail Station" transform="translate(750, 300)">
+                        <circle r="14" class="outside-bg" />
+                        <text class="icon">🚆</text>
+                    </g>
+                    <g id="bus-plaza" class="marker" data-name="Bus Plaza" transform="translate(50, 300)">
+                        <circle r="14" class="outside-bg" />
+                        <text class="icon">🚌</text>
+                    </g>
+                    <g id="rideshare-zone" class="marker" data-name="Lot K (Rideshare)" transform="translate(400, 50)">
+                        <circle r="14" class="outside-bg" />
+                        <text class="icon">🚗</text>
+                    </g>
+
+                    <!-- Food Courts -->
+                    <g id="food-world" class="marker" data-name="Food World" transform="translate(300, 160)">
+                        <circle r="14" class="food-bg" />
+                        <text class="icon">🍴</text>
+                    </g>
+                    <g id="food-latin" class="marker" data-name="Food Latin" transform="translate(500, 160)">
+                        <circle r="14" class="food-bg" />
+                        <text class="icon">🍴</text>
+                    </g>
+                    <g id="food-global" class="marker" data-name="Food Global" transform="translate(600, 300)">
+                        <circle r="14" class="food-bg" />
+                        <text class="icon">🍴</text>
+                    </g>
+                    <g id="food-pizza" class="marker" data-name="Food Pizza" transform="translate(500, 440)">
+                        <circle r="14" class="food-bg" />
+                        <text class="icon">🍴</text>
+                    </g>
+                    <g id="food-cafe" class="marker" data-name="Cafe" transform="translate(200, 350)">
+                        <circle r="14" class="food-bg" />
+                        <text class="icon">☕</text>
+                    </g>
+
+                    <!-- First Aid -->
+                    <g id="first-aid-north" class="marker" data-name="First Aid" transform="translate(400, 200)">
+                        <circle r="12" class="medical-bg" />
+                        <text class="icon red-cross">➕</text>
+                    </g>
+                    <g id="first-aid-south" class="marker" data-name="First Aid" transform="translate(400, 400)">
+                        <circle r="12" class="medical-bg" />
+                        <text class="icon red-cross">➕</text>
+                    </g>
+                    <g id="first-aid-upper" class="marker" data-name="First Aid" transform="translate(240, 200)">
+                        <circle r="12" class="medical-bg" />
+                        <text class="icon red-cross">➕</text>
+                    </g>
+
+                    <!-- Facilities -->
+                    <g id="prayer-room" class="marker" data-name="Prayer Room" transform="translate(560, 220)">
+                        <circle r="12" class="facility-bg" />
+                        <text class="icon">🕌</text>
+                    </g>
+                    
+                    <g id="guest-services" class="marker" data-name="Guest Services" transform="translate(340, 460)">
+                        <circle r="12" class="facility-bg" />
+                        <text class="icon">ℹ️</text>
+                    </g>
+                    
+                    <g id="guest-services-a" class="marker" data-name="Guest Services" transform="translate(450, 140)">
+                        <circle r="12" class="facility-bg" />
+                        <text class="icon">ℹ️</text>
+                    </g>
+
+                    <!-- Water Fountains -->
+                    <g id="water-1" class="marker" data-name="Water Fountain" transform="translate(260, 160)">
+                        <circle r="12" class="facility-bg" />
+                        <text class="icon droplet">💧</text>
+                    </g>
+                    <g id="water-2" class="marker" data-name="Water Fountain" transform="translate(540, 160)">
+                        <circle r="12" class="facility-bg" />
+                        <text class="icon droplet">💧</text>
+                    </g>
+                    <g id="water-3" class="marker" data-name="Water Fountain" transform="translate(260, 440)">
+                        <circle r="12" class="facility-bg" />
+                        <text class="icon droplet">💧</text>
+                    </g>
+                    <g id="water-4" class="marker" data-name="Water Fountain" transform="translate(540, 440)">
+                        <circle r="12" class="facility-bg" />
+                        <text class="icon droplet">💧</text>
+                    </g>
+                </g>
+
+                <!-- Origin Indicator -->
+                <g id="originMarker" class="origin-marker" style="display: none;">
+                    <circle r="10" class="origin-dot" />
+                    <circle r="10" class="origin-pulse" />
+                    <rect x="-45" y="-35" width="90" height="22" rx="4" class="tooltip-bg" />
+                    <text x="0" y="-20" class="tooltip-text" style="font-size: 11px;">You are here</text>
+                </g>
+
+                <!-- Dynamic Tooltip Anchor -->
+                <g id="tooltipGroup" style="display: none; transition: transform 0.3s ease;">
+                    <rect x="-60" y="-45" width="120" height="26" rx="4" class="tooltip-bg" />
+                    <text x="0" y="-28" class="tooltip-text">📍 You're heading here</text>
+                    <polygon points="-5,-19 5,-19 0,-14" class="tooltip-arrow" />
+                </g>
+            </svg>
+        </main>
+
+        <aside class="legend">
+            <h3>Map Legend</h3>
+            <div class="legend-grid">
+                <div class="legend-item"><span class="legend-icon">A</span> Gate</div>
+                <div class="legend-item"><span class="legend-icon">🍴</span> Food</div>
+                <div class="legend-item"><span class="legend-icon">➕</span> First Aid</div>
+                <div class="legend-item"><span class="legend-icon">ℹ️</span> Guest Services</div>
+                <div class="legend-item"><span class="legend-icon">💧</span> Water</div>
+                <div class="legend-item"><span class="legend-icon">♿</span> Accessibility</div>
+                <div class="legend-item"><span class="legend-icon">🕌</span> Prayer Room</div>
+                <div class="legend-item"><span class="legend-icon">🚆</span> Transport</div>
+            </div>
+        </aside>
+    </div>
+    <script src="map.js"></script>
+    <div id="hoverTooltip" class="hover-tooltip"></div>
+</body>
+</html>
