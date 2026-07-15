@@ -38,14 +38,14 @@ Visit the live URL to experience the app instantly. Best experienced in **Chrome
    ```
 
 ## Screenshots
-![Home Screen Placeholder](home_screen_placeholder.png)
-*Home Screen & Location Picker*
+![Home Screen](screenshots/mobile_home.png)
+*Home Screen*
 
-![Map Route Placeholder](map_route_placeholder.png)
+![Location Picker](screenshots/mobile_sheet_open.png)
+*Location-aware "I'm near" picker*
+
+![Interactive Map](screenshots/route_food-latin.png)
 *Interactive Map & Walking Routes*
-
-![Voice Chat Placeholder](voice_chat_placeholder.png)
-*Multilingual Voice Interaction*
 
 ---
 *Best experienced in Chrome.*
