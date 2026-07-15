@@ -337,7 +337,8 @@ svg {
 
 /* Origin Marker Styles */
 .origin-dot {
-    fill: #3b82f6; /* Distinct blue */
+    fill: #3b82f6;
+    /* Distinct blue */
     stroke: #ffffff;
     stroke-width: 2;
 }
@@ -354,8 +355,25 @@ svg {
         r: 10;
         opacity: 1;
     }
+
     100% {
         r: 25;
         opacity: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1rem;
+        letter-spacing: 0.5px;
+    }
+
+    .back-text {
+        display: none;
+    }
+
+    .back-link {
+        font-size: 1.3rem;
+        padding: 0 0.4rem;
     }
 }

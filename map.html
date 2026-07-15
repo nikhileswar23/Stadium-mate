@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stadium Map - StadiumMate</title>
     <link rel="stylesheet" href="map.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <div class="map-container">
         <header>
-            <a href="index.html" class="back-link">← Back to chat</a>
-            <h1>STADIUM MAP ✅</h1>
+            <a href="index.html" class="back-link">← <span class="back-text">Back to chat</span></a>
+            <h1>STADIUM MAP </h1>
         </header>
 
         <main class="map-area">
@@ -24,8 +27,8 @@
                 </defs>
 
                 <!-- Background Elements -->
-                <rect width="100%" height="100%" fill="transparent"/>
-                
+                <rect width="100%" height="100%" fill="transparent" />
+
                 <!-- Main Entrance Plaza Area -->
                 <g id="plaza" class="marker" data-name="Main Entrance Plaza" transform="translate(400, 550)">
                     <ellipse cx="0" cy="0" rx="100" ry="30" class="plaza-area" />
@@ -34,7 +37,7 @@
 
                 <!-- Concourse -->
                 <ellipse cx="400" cy="300" rx="280" ry="180" class="concourse" />
-                
+
                 <!-- Pitch -->
                 <ellipse cx="400" cy="300" rx="140" ry="90" class="pitch" />
                 <!-- Pitch Markings -->
@@ -44,7 +47,7 @@
                 <rect x="510" y="250" width="30" height="100" class="pitch-line" fill="none" />
 
                 <!-- Route Path -->
-                <path id="routeLine" class="route-line" d="" marker-end="url(#arrowhead)"/>
+                <path id="routeLine" class="route-line" d="" marker-end="url(#arrowhead)" />
 
                 <!-- Map Markers Group -->
                 <g id="markersLayer">
@@ -130,12 +133,12 @@
                         <circle r="12" class="facility-bg" />
                         <text class="icon">🕌</text>
                     </g>
-                    
+
                     <g id="guest-services" class="marker" data-name="Guest Services" transform="translate(340, 460)">
                         <circle r="12" class="facility-bg" />
                         <text class="icon">ℹ️</text>
                     </g>
-                    
+
                     <g id="guest-services-a" class="marker" data-name="Guest Services" transform="translate(450, 140)">
                         <circle r="12" class="facility-bg" />
                         <text class="icon">ℹ️</text>
@@ -194,4 +197,5 @@
     <script src="map.js"></script>
     <div id="hoverTooltip" class="hover-tooltip"></div>
 </body>
+
 </html>
