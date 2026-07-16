@@ -503,6 +503,8 @@ For facilities with multiple locations, return the CATEGORY id ('first-aid', 'wa
 - The nearest water is ${nameMap[nearestWater]}.
 Include this specific nearest location's name naturally in your reply!
 
+location_id must be EXACTLY one of the listed id strings, e.g. 'gate-c' — never a number, never a section number, never any other text.
+
 Intent Mapping Rules:
 - Questions about drinking water, drinking spots, water fountains, refill stations, filling a bottle, or being thirsty ALL map to the 'water' category.
 - Questions about medic, doctor, injury, hurt, medical help, feeling sick ALL map to the 'first-aid' category.
@@ -518,6 +520,7 @@ Specific unique places (gates, prayer-room, guest-services, rail-station, bus-pl
 Examples:
 User: "where is the nearest first aid" -> location_id: "first-aid", reply: "The nearest first aid is ${nameMap[nearestFirstAid]}."
 User: "any drinking spots here?" -> location_id: "water", reply: "The nearest water is ${nameMap[nearestWater]}."
+User: "where is gate C" -> location_id: "gate-c" (NOT "3", NOT "Gate C", NOT "section 116")
 User: "I want to pray" -> location_id: "prayer-room"
 User: "where can I catch a train?" -> location_id: "rail-station"
 User: "fastest way to New York" -> location_id: "rail-station"
@@ -582,7 +585,14 @@ async function fetchGeminiResponse(history) {
         try {
             const parsedResponse = JSON.parse(jsonText);
             let locationId = parsedResponse.location_id || null;
-            if (facilityCategories[locationId]) {
+            
+            if (locationId !== null) {
+                if (typeof locationId !== 'string' || !(locationCoords.hasOwnProperty(locationId) || facilityCategories.hasOwnProperty(locationId))) {
+                    locationId = null;
+                }
+            }
+
+            if (locationId && facilityCategories[locationId]) {
                 locationId = getNearestCategory(locationId, userLocationId);
             }
 
@@ -733,7 +743,14 @@ async function handleAudioMessage(base64Audio, mimeType) {
             try {
                 const parsedResponse = JSON.parse(jsonText);
                 let locationId = parsedResponse.location_id || null;
-                if (facilityCategories[locationId]) {
+                
+                if (locationId !== null) {
+                    if (typeof locationId !== 'string' || !(locationCoords.hasOwnProperty(locationId) || facilityCategories.hasOwnProperty(locationId))) {
+                        locationId = null;
+                    }
+                }
+
+                if (locationId && facilityCategories[locationId]) {
                     locationId = getNearestCategory(locationId, userLocationId);
                 }
 
